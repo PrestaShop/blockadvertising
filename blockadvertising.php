@@ -45,7 +45,7 @@ class BlockAdvertising extends Module
 	{
 		$this->name = 'blockadvertising';
 		$this->tab = 'advertising_marketing';
-		$this->version = '0.9';
+		$this->version = '0.9.1';
 		$this->author = 'PrestaShop';
 		$this->need_instance = 0;
 
