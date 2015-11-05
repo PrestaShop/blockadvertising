@@ -88,19 +88,6 @@ class BlockAdvertising extends Module
 		if (!parent::install())
 			return false;
 
-		// Hook the module either on the left or right column
-		$theme = new Theme(Context::getContext()->shop->id_theme);
-		if ((!$theme->default_left_column || !$this->registerHook('leftColumn'))
-			&& (!$theme->default_right_column || !$this->registerHook('rightColumn'))
-		)
-		{
-			// If there are no colums implemented by the template, throw an error and uninstall the module
-			$this->_errors[] = $this->l('This module needs to be hooked to a column, but your theme does not implement one');
-			parent::uninstall();
-
-			return false;
-		}
-
 		Configuration::updateGlobalValue('BLOCKADVERT_LINK', 'http://www.prestashop.com/');
 		Configuration::updateGlobalValue('BLOCKADVERT_TITLE', 'PrestaShop');
 		// Try to update with the extension of the image that exists in the module directory
