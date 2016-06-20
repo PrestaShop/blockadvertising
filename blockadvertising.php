@@ -52,8 +52,8 @@ class BlockAdvertising extends Module
 		$this->bootstrap = true;
 		parent::__construct();
 
-		$this->displayName = $this->l('Advertising block');
-		$this->description = $this->l('Adds an advertisement block to selected sections of your e-commerce website.');
+		$this->displayName = $this->getTranslator()->trans('Advertising block', array(), 'Modules.BlockAdvertising');
+		$this->description = $this->getTranslator()->trans('Adds an advertisement block to selected sections of your e-commerce website.', array(), 'Modules.BlockAdvertising');
 		$this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
 
 		$this->initialize();
@@ -151,7 +151,7 @@ class BlockAdvertising extends Module
 
 					// Copy the image in the module directory with its new name
 					if (!move_uploaded_file($_FILES['adv_img']['tmp_name'], _PS_MODULE_DIR_.$this->name.'/img/'.$this->adv_imgname.'.'.Configuration::get('BLOCKADVERT_IMG_EXT')))
-						$errors .= $this->l('File upload error.');
+						$errors .= $this->getTranslator()->trans('File upload error.', array(), 'Admin.Notification.Errors');
 				}
 			}
 
@@ -219,31 +219,31 @@ class BlockAdvertising extends Module
 		$fields_form = array(
 			'form' => array(
 				'legend' => array(
-					'title' => $this->l('Configuration'),
+					'title' => $this->getTranslator()->trans('Configuration', array(), 'Admin.Global'),
 					'icon' => 'icon-cogs'
 				),
 				'input' => array(
 					array(
 						'type' => 'file',
-						'label' => $this->l('Image for the advertisement'),
+						'label' => $this->getTranslator()->trans('Image for the advertisement', array(), 'Modules.BlockAdvertising'),
 						'name' => 'adv_img',
-						'desc' => $this->l('By default the image will appear in the left column. The recommended dimensions are 155 x 163px.'),
+						'desc' => $this->getTranslator()->trans('By default the image will appear in the left column. The recommended dimensions are 155 x 163px.', array(), 'Modules.BlockAdvertising'),
 						'thumb' => $this->context->link->protocol_content.$this->adv_img,
 					),
 					array(
 						'type' => 'text',
-						'label' => $this->l('Target link for the image'),
+						'label' => $this->getTranslator()->trans('Target link for the image', array(), 'Modules.BlockAdvertising'),
 						'name' => 'adv_link',
 					),
 					array(
 						'type' => 'text',
-						'label' => $this->l('Title of the target link'),
+						'label' => $this->getTranslator()->trans('Title of the target link', array(), 'Modules.BlockAdvertising'),
 						'name' => 'adv_title',
-						'desc' => $this->l('This title will be displayed when you mouse over the advertisement block in your shop.')
+						'desc' => $this->getTranslator()->trans('This title will be displayed when you mouse over the advertisement block in your shop.', array(), 'Modules.BlockAdvertising')
 					),
 				),
 				'submit' => array(
-					'title' => $this->l('Save'),
+					'title' => $this->getTranslator()->trans('Save', array(), 'Admin.Global'),
 				)
 			),
 		);
