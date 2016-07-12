@@ -151,7 +151,7 @@ class BlockAdvertising extends Module
 
 					// Copy the image in the module directory with its new name
 					if (!move_uploaded_file($_FILES['adv_img']['tmp_name'], _PS_MODULE_DIR_.$this->name.'/img/'.$this->adv_imgname.'.'.Configuration::get('BLOCKADVERT_IMG_EXT')))
-						$errors .= $this->getTranslator()->trans('File upload error.', array(), 'Admin.Notification.Errors');
+						$errors .= $this->getTranslator()->trans('File upload error.', array(), 'Admin.Notifications.Error');
 				}
 			}
 
